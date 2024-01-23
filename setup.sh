@@ -1,11 +1,5 @@
 # Credit: https://github.com/Area69Lab
 # setup.sh VNC_USER_PASSWORD VNC_PASSWORD NGROK_AUTH_TOKEN
-
-# Check if Homebrew is installed
-if ! command -v brew &> /dev/null; then
-    # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
 # Enable Screen Sharing
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -allowAccessFor -allUsers -privs -all -clientopts -setvnclegacy -vnclegacy yes
 
@@ -38,7 +32,11 @@ sudo dseditgroup -o edit -a $USER -t user _lpadmin
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
-
+# Check if Homebrew is installed
+if ! command -v brew &> /dev/null; then
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 # Install Xcode
 sudo xcode-select --install
