@@ -38,14 +38,7 @@ if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install Xcode
-sudo xcode-select --install
 
-# Install ngrok
-sudo brew install --cask ngrok
-
-# Install TeamViewer
-sudo brew install --cask teamviewer
 
 
 # Configure ngrok and start it
