@@ -32,15 +32,6 @@ sudo dseditgroup -o edit -a $USER -t user _lpadmin
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
-# Check if Homebrew is installed
-if ! command -v brew &> /dev/null; then
-    # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-
-
-
 # Configure ngrok and start it
 ngrok authtoken $3
 ngrok tcp 5900 --region=in &
