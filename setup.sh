@@ -41,34 +41,14 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 
 
 # Install Xcode
-xcode-select --install
+sudo xcode-select --install
 
 # Install ngrok
-brew install --cask ngrok
+sudo brew install --cask ngrok
 
 # Install TeamViewer
-brew install --cask teamviewer
+sudo brew install --cask teamviewer
 
-# Check if TeamViewer is installed successfully
-if [ -d "/Applications/TeamViewer.app" ]; then
-    echo "TeamViewer installed successfully."
-else
-    echo "TeamViewer installation failed. Trying alternative method..."
-    
-    # Download and install TeamViewer using official installer
-    curl -O https://download.teamviewer.com/download/TeamViewerQS.dmg
-    hdiutil mount TeamViewer.dmg
-    sudo installer -pkg /Volumes/TeamViewer/Install\ TeamViewer.pkg -target /
-    hdiutil unmount /Volumes/TeamViewer
-    rm TeamViewer.dmg
-    
-    # Check again if TeamViewer is installed
-    if [ -d "/Applications/TeamViewer.app" ]; then
-        echo "TeamViewer installed successfully using alternative method."
-    else
-        echo "TeamViewer installation failed. Please install it manually."
-    fi
-fi
 
 # Configure ngrok and start it
 ngrok authtoken $3
